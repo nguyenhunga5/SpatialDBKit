@@ -54,12 +54,8 @@ void Swizzle(Class c, SEL orig, SEL new)
     if (self)
     {
         SpatialDatabaseInstances++;
-        if (SpatialDatabaseInstances==1)
-        {
-            NSLog(@"Spatialite initialization");
-            spatialite_init(TRUE);
-            Swizzle([FMResultSet class], @selector(objectForColumnIndex:), @selector(_swizzleObjectForColumnIndex:));
-        }
+        spatialite_init(FALSE);
+        Swizzle([FMResultSet class], @selector(objectForColumnIndex:), @selector(_swizzleObjectForColumnIndex:));
     }
     return self;
 }
