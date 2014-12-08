@@ -1,4 +1,4 @@
 language: objective-c
-xcode_workspace: ./Tests/iOS/SpatialDBKitiOS.xcodeworkspace
-xcode_scheme: SpatialDBKitiOS
-podfile: ./Tests/iOS/Podfile
+xcode_workspace: Tests/iOS/SpatialDBKitiOS.xcodeworkspace
+xcode_scheme: SpatialDBKitiOSTests
+podfile: Tests/iOS/Podfile
