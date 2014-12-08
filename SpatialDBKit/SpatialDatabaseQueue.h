@@ -13,7 +13,7 @@
 // See the LICENSE file for more information.
 
 #import <Foundation/Foundation.h>
-#import <FMDB/FMDatabaseQueue.h>
+#import "FMDatabaseQueue.h"
 
 @interface SpatialDatabaseQueue : FMDatabaseQueue
 @end
