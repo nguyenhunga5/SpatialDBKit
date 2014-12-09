@@ -6,10 +6,13 @@
 //  Copyright (c) 2014 David Chiles. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <XCTest/XCTest.h>
+@import XCTest;
+
+#import <SpatialDBKit/SpatialDatabase.h>
 
 @interface SpatialDBKitiOSTests : XCTestCase
+
+@property (nonatomic, strong) SpatialDatabase *database;
 
 @end
 
@@ -17,7 +20,10 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    self.database = [SpatialDatabase databaseWithPath: [[NSBundle mainBundle] pathForResource:@"test-2.3" ofType:@"sqlite"]];
+    BOOL opened = [self.database open];
+    XCTAssertTrue(opened,@"Failed to open database");
 }
 
 - (void)tearDown {
@@ -25,16 +31,22 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void)testVersion {
+    NSString *version = [SpatialDatabase spatialiteLibVersion];
+    XCTAssertTrue([version length] > 0,@"Could not find spatialite lib version");
+    
+    version = [SpatialDatabase sqliteLibVersion];
+    XCTAssertTrue([version length] > 0,@"Could not find sqlite lib version");
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testAsText
+{
+    FMResultSet *resultSet = [self.database executeQuery:@"select AsText(geometry) AS text FROM Regions WHERE PK_UID = 106"];
+    XCTAssertNotNil(resultSet,@"No results");
+    while ([resultSet next]) {
+        NSDictionary *dictionary = [resultSet resultDictionary];
+        XCTAssertTrue([dictionary count] > 0, @"Empty Dictionary");
+    }
 }
 
 @end

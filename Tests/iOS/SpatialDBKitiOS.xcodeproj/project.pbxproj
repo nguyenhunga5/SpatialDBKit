@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20736FE7E73B3B2649D93D90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FF95442A4F99F214AE9C30 /* libPods.a */; };
 		634FD3A61A365C1A0067EE4F /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 634FD3A51A365C1A0067EE4F /* main.mm */; };
 		634FD3A91A365C1A0067EE4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FD3A81A365C1A0067EE4F /* AppDelegate.m */; };
 		634FD3AC1A365C1A0067EE4F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FD3AB1A365C1A0067EE4F /* ViewController.m */; };
@@ -14,6 +15,10 @@
 		634FD3B11A365C1A0067EE4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634FD3B01A365C1A0067EE4F /* Images.xcassets */; };
 		634FD3B41A365C1A0067EE4F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634FD3B21A365C1A0067EE4F /* LaunchScreen.xib */; };
 		634FD3C01A365C1A0067EE4F /* SpatialDBKitiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634FD3BF1A365C1A0067EE4F /* SpatialDBKitiOSTests.m */; };
+		634FD3D31A3680600067EE4F /* test-2.3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 634FD3D11A3680600067EE4F /* test-2.3.sqlite */; };
+		634FD3D41A3680600067EE4F /* test-2.3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 634FD3D11A3680600067EE4F /* test-2.3.sqlite */; };
+		634FD3D51A3680600067EE4F /* test-network-2.3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 634FD3D21A3680600067EE4F /* test-network-2.3.sqlite */; };
+		634FD3D61A3680600067EE4F /* test-network-2.3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 634FD3D21A3680600067EE4F /* test-network-2.3.sqlite */; };
 		BA38DF89C4370098838BC7CA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FF95442A4F99F214AE9C30 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +48,8 @@
 		634FD3B91A365C1A0067EE4F /* SpatialDBKitiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpatialDBKitiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		634FD3BE1A365C1A0067EE4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		634FD3BF1A365C1A0067EE4F /* SpatialDBKitiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpatialDBKitiOSTests.m; sourceTree = "<group>"; };
+		634FD3D11A3680600067EE4F /* test-2.3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "test-2.3.sqlite"; sourceTree = "<group>"; };
+		634FD3D21A3680600067EE4F /* test-network-2.3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "test-network-2.3.sqlite"; sourceTree = "<group>"; };
 		73DCC2B3C21660C3B79399E5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20736FE7E73B3B2649D93D90 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				634FD3BF1A365C1A0067EE4F /* SpatialDBKitiOSTests.m */,
+				634FD3D01A3680600067EE4F /* Assets */,
 				634FD3BD1A365C1A0067EE4F /* Supporting Files */,
 			);
 			path = SpatialDBKitiOSTests;
@@ -125,6 +134,15 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		634FD3D01A3680600067EE4F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				634FD3D11A3680600067EE4F /* test-2.3.sqlite */,
+				634FD3D21A3680600067EE4F /* test-network-2.3.sqlite */,
+			);
+			path = Assets;
+			sourceTree = SOURCE_ROOT;
 		};
 		730628C88FA94CFCFFA9C746 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -169,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 634FD3C61A365C1A0067EE4F /* Build configuration list for PBXNativeTarget "SpatialDBKitiOSTests" */;
 			buildPhases = (
+				13DB18CF96DB2612433E2CA3 /* Check Pods Manifest.lock */,
 				634FD3B51A365C1A0067EE4F /* Sources */,
 				634FD3B61A365C1A0067EE4F /* Frameworks */,
 				634FD3B71A365C1A0067EE4F /* Resources */,
+				359C6B31935D2C2B09BB3D33 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,7 +247,9 @@
 			files = (
 				634FD3AF1A365C1A0067EE4F /* Main.storyboard in Resources */,
 				634FD3B41A365C1A0067EE4F /* LaunchScreen.xib in Resources */,
+				634FD3D51A3680600067EE4F /* test-network-2.3.sqlite in Resources */,
 				634FD3B11A365C1A0067EE4F /* Images.xcassets in Resources */,
+				634FD3D31A3680600067EE4F /* test-2.3.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +257,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634FD3D61A3680600067EE4F /* test-network-2.3.sqlite in Resources */,
+				634FD3D41A3680600067EE4F /* test-2.3.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +266,36 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		065D1E4F996EC5410DB27E7C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		13DB18CF96DB2612433E2CA3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		359C6B31935D2C2B09BB3D33 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -424,11 +478,15 @@
 		};
 		634FD3C71A365C1A0067EE4F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 513359FD594A7B98D48DF22B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -443,11 +501,15 @@
 		};
 		634FD3C81A365C1A0067EE4F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73DCC2B3C21660C3B79399E5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = SpatialDBKitiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

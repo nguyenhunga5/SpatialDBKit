@@ -1,4 +1,7 @@
 platform :ios, '5.0'
+
+link_with 'SpatialDBKitiOS', 'SpatialDBKitiOSTests'
+
 pod 'SpatialDBKit', :path => '../../'
 
 pre_install do |installer_representation|
