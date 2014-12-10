@@ -9,6 +9,7 @@
 @import XCTest;
 
 #import <SpatialDBKit/SpatialDatabase.h>
+#import "ShapeKitGeometry.h"
 
 @interface SpatialDBKitiOSTests : XCTestCase
 
@@ -27,7 +28,9 @@
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [self.database close];
+    //Error dealoc not cleaning up properly
+    //self.database = nil;
     [super tearDown];
 }
 
@@ -39,6 +42,18 @@
     XCTAssertTrue([version length] > 0,@"Could not find sqlite lib version");
 }
 
+- (void)testFetch
+{
+    FMResultSet *restultSet = [self.database executeQuery:@"select geometry FROM Regions WHERE PK_UID = 106"];
+    id geometry = nil;
+    while ([restultSet next])
+    {
+        geometry = [restultSet objectForColumnName:@"geometry"];
+        XCTAssertNotNil(geometry,@"Nil geometry");
+        XCTAssertTrue([geometry isKindOfClass:[ShapeKitGeometry class]],@"Is not ShapeKitGeometry");
+    }
+}
+
 - (void)testAsText
 {
     FMResultSet *resultSet = [self.database executeQuery:@"select AsText(geometry) AS text FROM Regions WHERE PK_UID = 106"];
@@ -46,6 +61,18 @@
     while ([resultSet next]) {
         NSDictionary *dictionary = [resultSet resultDictionary];
         XCTAssertTrue([dictionary count] > 0, @"Empty Dictionary");
+    }
+}
+
+- (void)testNetwork
+{
+    SpatialDatabase *networkDatabase = [[SpatialDatabase alloc] initWithPath:[[NSBundle mainBundle] pathForResource:@"test-network-2.3" ofType:@"sqlite"]];
+    [networkDatabase open];
+    FMResultSet *resutlSet = [networkDatabase executeQuery:@"SELECT * FROM Roads_net WHERE NodeFrom = 1 AND NodeTo = 512"];
+    XCTAssertNotNil(resutlSet, @"No results");
+    while ([resutlSet next]) {
+        NSDictionary *dictionary = [resutlSet resultDictionary];
+        XCTAssertTrue([dictionary count],@"Empty results dictionary");
     }
 }
 
