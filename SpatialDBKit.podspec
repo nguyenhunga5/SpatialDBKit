@@ -10,7 +10,8 @@ Pod::Spec.new do |s|
 
   s.source     = { :git => "https://github.com/davidchiles/SpatialDBKit.git", :tag => "0.1.1"}
 
-  s.platform = :ios, "5.0"
+  s.ios.deployment_target = '7.0'
+  s.osx.deployment_target = '10.10'
 
   s.dependency "spatialite"
   s.dependency "FMDB/common"
